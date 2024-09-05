@@ -1,0 +1,26 @@
+.carouselContainer {
+  max-width: 500px; /* Ajusta el tamaño máximo del carrusel */
+  margin: 0 auto;   /* Centra el carrusel en la página */
+  padding-bottom: 100px;
+}
+
+.carouselItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ocultar desbordamientos */
+  flex-direction: column;
+}
+
+.productImage {
+  width: 100%; /* Hace que la imagen ocupe todo el contenedor */
+  height: auto; /* Mantiene la proporción */
+  object-fit: cover; /* Ajusta la imagen dentro del contenedor */
+}
+
+.legend {
+  font-size: 1.5em; /* Ajusta el tamaño de la fuente según sea necesario */
+  color: #fff; /* Opcional: cambia el color del texto si es necesario */
+  text-align: center; /* Alinea el texto al centro */
+  margin: 10px 0; /* Ajusta el margen superior e inferior según sea necesario */
+}

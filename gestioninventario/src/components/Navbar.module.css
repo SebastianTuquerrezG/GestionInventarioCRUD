@@ -1,0 +1,55 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #0070f3;
+    color: white;
+}
+
+.titleContainer {
+    display: flex;
+    align-items: center; /* Alinea verticalmente ícono y texto */
+}
+
+.navTitle {
+  cursor: pointer;
+  font-size: x-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #fff; /* Color del texto */
+  position: relative;
+  
+  /* Efecto de sombra brillante */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+               0 0 20px rgba(11, 178, 184, 0.6), 
+               0 0 30px rgba(218, 82, 19, 0.795);
+}
+
+.icon {
+    margin-right: 5px; /* Ajusta este valor si es necesario */
+    font-size: 2em;
+    color: #ffffff;
+}
+
+.navTitle:hover {
+    text-decoration: underline;
+}
+
+.navRight {
+    display: flex;
+    gap: 10px;
+}
+
+.navButton {
+    background-color: white;
+    color: #0070f3;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.navButton:hover {
+    background-color: #005bb5;
+    color: white;
+}
