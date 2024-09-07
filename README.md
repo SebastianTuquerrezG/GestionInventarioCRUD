@@ -1,22 +1,22 @@
-# Inventory Management System
+# Sistema de Gestion de Inventario
 
-This is a web-based Inventory Management System built using **React**, **TypeScript**, **Next.js**, and **MySQL**. The application allows users to manage products, monitor stock levels, and track inventory movements.
+Estos es una web para la administracion de inventario usando **React**, **TypeScript**, **Next.js**, and **MySQL**. La aplicacion permite el manejo de productos, monitorear el nivel de stock, y el flujo de movimiento de los productos.
 
-## Features
+## Caracteristicas
 
-- **Product Management:** Add, edit, and delete products.
-- **Stock Monitoring:** View current stock levels and receive alerts when stock is low.
-- **Inventory History:** Track the history of inventory movements (stock in/out).
-- **Search and Filter:** Easily search and filter products by different attributes.
-- **User Authentication (Optional):** Secure login system with role-based access control.
+- **Gestion de Productos:** Add, edit, and delete products.
+- **Monitoreo de Stock:** View current stock levels and receive alerts when stock is low.
+- **Historial de Inventario:** Track the history of inventory movements (stock in/out).
+- **Buscar y Filtrar:** Easily search and filter products by different attributes.
 
-## Tech Stack
+## Stack de Tecnologias
 
 - **Frontend:**
-  - React
+  - React / React Responsive Carousel / React Icons
   - TypeScript
   - Next.js
   - Styled-components / CSS Modules / Tailwind CSS (choose one for styling)
+  - axios
 
 - **Backend:**
   - Next.js API routes (for server-side logic)
@@ -40,4 +40,4 @@ This is a web-based Inventory Management System built using **React**, **TypeScr
 
    ```bash
    git clone https://github.com/yourusername/inventory-management-system.git
-   cd inventory-management-system
+   cd gestioninventario
