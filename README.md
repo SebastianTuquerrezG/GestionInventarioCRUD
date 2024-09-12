@@ -34,10 +34,20 @@ Estos es una web para la administracion de inventario usando **React**, **TypeSc
 - Node.js (v14 or later)
 - MySQL (v8 or later)
 
-### Installation
+### Installation and Ejecution
 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/inventory-management-system.git
+   git clone git@github.com:SebastianTuquerrezG/GestionInventarioCRUD.git
    cd gestioninventario
+   ```
+   
+  2. **Instalar dependencias:**
+      ```
+      npm install
+      ```
+  3. **Ejecutar servidor:**
+      ```
+      npm run dev
+      ```
