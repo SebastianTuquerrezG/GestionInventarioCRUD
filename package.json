@@ -2,5 +2,15 @@
   "dependencies": {
     "@prisma/client": "^5.19.1",
     "prisma": "^5.19.1"
-  }
+  },
+  "name": "gestioninventariocrud",
+  "version": "1.0.0",
+  "description": "Estos es una web para la administracion de inventario usando **React**, **TypeScript**, **Next.js**, and **MySQL**. La aplicacion permite el manejo de productos, monitorear el nivel de stock, y el flujo de movimiento de los productos.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
