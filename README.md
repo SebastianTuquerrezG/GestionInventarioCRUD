@@ -38,6 +38,7 @@ En el backend, se ha utilizado una arquitectura cebolla o onion architecture, qu
   - Node.js
   - Express (optional for more complex routing and middleware)
   - TypeORM 
+  - CORS 
 
 - **Database:**
   - MySQL
@@ -61,6 +62,7 @@ En el backend, se ha utilizado una arquitectura cebolla o onion architecture, qu
   2. **Instalar dependencias:**
       ```
       npm install
+      npm i --save-dev @types/cors
       ```
   3. **Ejecutar servidor:**
       ```

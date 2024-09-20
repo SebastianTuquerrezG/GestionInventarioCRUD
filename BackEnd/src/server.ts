@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import express from 'express';
+import cors from 'cors';
 import { AppDataSource } from './Product_infrastructure/persistence/data-source';
 import { ProductServiceImpl } from './Product_service/implementations/ProductServiceImpl';
 import { TypeORMProductRepository } from './Product_infrastructure/persistence/ORMProductRepository';
@@ -8,6 +9,13 @@ import { ProductController } from './Product_infrastructure/controllers/ProductC
 AppDataSource.initialize().then(async () => {
     const app = express();
     app.use(express.json());
+
+    // ConfiguraR CORS
+    app.use(cors({
+        origin: 'http://localhost:3001', // Permitir solo tu frontend
+        methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+        allowedHeaders: ['Content-Type'] // Headers permitidos
+    }));
 
     const productRepository = new TypeORMProductRepository();
     const productService = new ProductServiceImpl(productRepository);
