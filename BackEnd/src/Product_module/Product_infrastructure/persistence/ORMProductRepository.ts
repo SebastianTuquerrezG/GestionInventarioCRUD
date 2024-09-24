@@ -1,7 +1,7 @@
 import { IProductRepository } from "../../Product_core/repositories/IProductRepository";
 import { Product } from "../../Product_core/entities/Product";
 import { Repository } from "typeorm";
-import { AppDataSource } from "./data-source";
+import { AppDataSource } from '../../../config/data-source';
 
 export class TypeORMProductRepository implements IProductRepository {
   private repository: Repository<Product>;
