@@ -18,7 +18,7 @@ AppDataSource.initialize().then(async () => {
 
     // Configurar CORS
     app.use(cors({
-        origin: 'http://localhost:3001', // Permitir solo tu frontend
+        origin: 'http://localhost:3001', // Permitir solo el frontend
         methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
         allowedHeaders: ['Content-Type'] // Headers permitidos
     }));
@@ -28,7 +28,7 @@ AppDataSource.initialize().then(async () => {
     const productController = new ProductController(productService);
 
     const inventoryMovementRepository = new TypeORMInventoryMovementRepository();
-    const inventoryMovementService = new InventoryMovementServiceImpl(inventoryMovementRepository);
+    const inventoryMovementService = new InventoryMovementServiceImpl(inventoryMovementRepository, productRepository);
     const inventoryMovementController = new InventoryMovementController(inventoryMovementService);
 
     const userRepository = new TypeORMUserRepository();

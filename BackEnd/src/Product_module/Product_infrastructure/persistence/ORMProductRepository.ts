@@ -25,8 +25,10 @@ export class TypeORMProductRepository implements IProductRepository {
   async update(id: number, product: Product): Promise<Product | null> {
     const existingProduct = await this.findById(id);
     if (!existingProduct) return null;
-    await this.repository.update(id, product);
-    return this.findById(id);
+
+    const updatedProduct = await this.repository.merge(existingProduct, product);
+
+    return await this.repository.save(updatedProduct);
   }
 
   async delete(id: number): Promise<boolean> {

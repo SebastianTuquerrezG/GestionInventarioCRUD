@@ -24,27 +24,48 @@ export class UserController {
     }
 
     async create(req: Request, res: Response): Promise<void> {
-        const user: User = req.body;
-        const newUser = await this.userService.createUser(user);
-        res.status(201).json(newUser);
+      try {
+        const newUser: User = req.body;
+        const result = await this.userService.createUser(newUser);
+        console.log(`User registered: Username ${newUser.username}, Role ${newUser.role}`);
+        res.status(201).json(result);
+      } catch (error) {
+        if (error instanceof Error) {
+          res.status(400).json({ message: error.message });
+        } else {
+          res.status(500).json({ message: 'Internal Server Error' });
+        }
+      }
     }
 
     async update(req: Request, res: Response): Promise<void> {
-        const user: User = req.body;
-        const updatedUser = await this.userService.updateUser(Number(req.params.id), user);
-        if (updatedUser) {
-            res.json(updatedUser);
+      try {
+        const id = parseInt(req.params.id);
+        const updatedUser: User = req.body;
+        const result = await this.userService.updateUser(id, updatedUser);
+        console.log(`User updated: ID ${id}, Username ${updatedUser.username}, Role ${updatedUser.role}`);
+        res.status(200).json(result);
+      } catch (error) {
+        if (error instanceof Error) {
+          res.status(400).json({ message: error.message });
         } else {
-            res.status(404).json({ message: 'User not found' });
+          res.status(500).json({ message: 'Internal Server Error' });
         }
+      }
     }
 
     async delete(req: Request, res: Response): Promise<void> {
-        const success = await this.userService.deleteUser(Number(req.params.id));
-        if (success) {
-            res.status(204).send();
+      try {
+        const id = parseInt(req.params.id);
+        await this.userService.deleteUser(id);
+        console.log(`User deleted: ID ${id}`);
+        res.status(204).send();
+      } catch (error) {
+        if (error instanceof Error) {
+          res.status(400).json({ message: error.message });
         } else {
-            res.status(404).json({ message: 'User not found' });
+          res.status(500).json({ message: 'Internal Server Error' });
         }
+      }
     }
 }
