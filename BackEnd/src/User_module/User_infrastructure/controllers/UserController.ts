@@ -68,4 +68,20 @@ export class UserController {
         }
       }
     }
+
+    async verifyLogin(req: Request, res: Response) {
+      const { username, password } = req.body;
+
+      try {
+          const user = await this.userService.verifyCredentials(username, password);
+          if (user) {
+              console.log('User verified');              
+              res.status(200).json({ success: true, message: 'Login successful' });
+          } else {
+              res.status(401).json({ success: false, message: 'Invalid username or password' });
+          }
+      } catch (error) {
+          res.status(500).json({ success: false, message: 'Invalid username or password' });
+      }
+  }
 }

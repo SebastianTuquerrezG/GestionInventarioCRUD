@@ -6,4 +6,5 @@ export interface IUserService {
     createUser(user: User): Promise<User>;
     updateUser(id: number, user: User): Promise<User | null>;
     deleteUser(id: number): Promise<boolean>;
+    verifyCredentials(username: string, password: string): Promise<boolean>;
 }

@@ -28,4 +28,12 @@ export class UserServiceImpl implements IUserService {
     async deleteUser(id: number): Promise<boolean> {
         return await this.userRepository.delete(id);
     }
+
+    async verifyCredentials(username: string, password: string): Promise<boolean> {
+        const user = await this.userRepository.findByUsername(username);
+        if (user && user.password === password) {
+            return true;
+        }
+        return false;
+    }
 }

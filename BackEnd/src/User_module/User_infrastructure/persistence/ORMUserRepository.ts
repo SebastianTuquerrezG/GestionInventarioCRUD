@@ -19,7 +19,10 @@ export class TypeORMUserRepository implements IUserRepository {
     }
 
     async findByUsername(username: string): Promise<User | null> {
-        return await this.repository.findOneBy({ username });
+        const user = await AppDataSource.getRepository(User).findOne({
+            where: { username }
+        });
+        return user;
     }
 
     async create(user: User): Promise<User> {

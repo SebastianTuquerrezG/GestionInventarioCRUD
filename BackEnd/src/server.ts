@@ -52,6 +52,7 @@ AppDataSource.initialize().then(async () => {
     app.post('/users', (req, res) => userController.create(req, res));
     app.put('/users/:id', (req, res) => userController.update(req, res));
     app.delete('/users/:id', (req, res) => userController.delete(req, res));
+    app.post('/users/verify', (req, res) => userController.verifyLogin(req, res));
 
     app.listen(3000, () => {
         console.log('Server is running on port 3000');
