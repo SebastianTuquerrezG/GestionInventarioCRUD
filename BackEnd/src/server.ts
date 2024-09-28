@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 import express from 'express';
 import cors from 'cors';
+import cookieParser from "cookie-parser";
 import { AppDataSource } from './config/data-source';
 import { ProductServiceImpl } from './Product_module/Product_service/implementations/ProductServiceImpl';
 import { TypeORMProductRepository } from './Product_module/Product_infrastructure/persistence/ORMProductRepository';
@@ -15,6 +16,7 @@ import { TypeORMUserRepository } from './User_module/User_infrastructure/persist
 AppDataSource.initialize().then(async () => {
     const app = express();
     app.use(express.json());
+    app.use(cookieParser());
 
     // Configurar CORS
     app.use(cors({

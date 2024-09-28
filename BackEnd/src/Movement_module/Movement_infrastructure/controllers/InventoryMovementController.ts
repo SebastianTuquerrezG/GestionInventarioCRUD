@@ -5,6 +5,7 @@ import { InventoryMovement } from '../../Movement_core/entities/InventoryMovemen
 export class InventoryMovementController {
     private inventoryMovementService: IInventoryMovementService;
 
+
     constructor(inventoryMovementService: IInventoryMovementService) {
         this.inventoryMovementService = inventoryMovementService;
     }

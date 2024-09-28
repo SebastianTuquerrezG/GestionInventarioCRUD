@@ -1,6 +1,12 @@
 import { Request, Response } from 'express';
 import { IUserService } from '../../User_service/interfaces/IUserService';
 import { User } from '../../User_core/entities/User';
+import createAccessToken from '../../../libs/jwt';
+
+interface Credentials {
+  isValid: boolean;
+  user: User,
+}
 
 export class UserController {
     private userService: IUserService;
@@ -71,17 +77,24 @@ export class UserController {
 
     async verifyLogin(req: Request, res: Response) {
       const { username, password } = req.body;
-
       try {
-          const user = await this.userService.verifyCredentials(username, password);
-          if (user) {
-              console.log('User verified');              
-              res.status(200).json({ success: true, message: 'Login successful' });
+          const credentials: Credentials = await this.userService.verifyCredentials(username, password) as Credentials;
+          if (credentials.isValid && credentials.user) {
+              const token = await createAccessToken({ id: credentials.user.id });  
+              console.log('User verified');     
+              res.status(200).json({ 
+                id: credentials.user.id,
+                username: credentials.user.username,
+                role: credentials.user.role,
+                success: true, 
+                message: 'Login successful', 
+                token: token
+              });
           } else {
-              res.status(401).json({ success: false, message: 'Invalid username or password' });
+              res.status(401).json({ success: false, message: 'Invalid username or password', token: null });
           }
       } catch (error) {
-          res.status(500).json({ success: false, message: 'Invalid username or password' });
+          res.status(500).json({ success: false, message: 'Invalid username or password', token: null});
       }
   }
 }

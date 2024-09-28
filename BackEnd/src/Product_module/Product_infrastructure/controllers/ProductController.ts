@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { IProductService } from '../../Product_service/interfaces/IProductService';
 import { Product } from '../../Product_core/entities/Product';
-
 export class ProductController {
   private productService: IProductService;
 
